@@ -2,11 +2,7 @@
 #+author: Thomas Heartman
 #+date: {{{time(%Y-%m-%d)}}}
 #+options: toc:nil
-#+latex_class: article
-#+latex_class_options: [12pt, a4paper, article, oneside, oldfontcommands]
-#+latex_header: \declaretheorem[style = definition]{problem}
-#+latex_header: \declaretheorem[style = definition, sibling = problem]{exercise}
-
+#+latex_class: uio-memoir
 
 This is my introductory paragraph.
 
@@ -23,6 +19,12 @@ as a rational function.
 
 If I try and insert some text here as response to the problem, does that work?
 
+What about a list?
+1. This is an item.
+2. As is this.
+3. This too!
+
+
 \item Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for
 $\mathcal{S}_2(z) $ to
 prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
@@ -30,14 +32,134 @@ prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{
 \item Use a partial fraction decomposition of the generating function $\mathcal{S}_3(z) $ to obtain a closed formula for $S_{n, 3}$.
 \end{enumerate}
 
+\end{problem}
 
-* Stirling numbers of the 2^nd kind and generating functions
+\begin{problem}{\bf Graphs from sets}
 
-Use a counting argument to show that  the Stirling numbers of the second kind satisfy $S_{n, 2} = 2^{n-1} -1$ for $n\geq 1$ (recall  that $S_{0, k} = 0$). Express the generating function
+\begin{enumerate}
+%\ \\
 
-$$\mathcal{S}_2(z) = \sum_{n = 0}^\infty S_{n, 2} z^n$$
+\item Recall the hypercube graph is $Q_n = (V(Q_n), E(Q_n))$ where
+$$V(Q_n) = \{ u_1 \dots u_n \ | \ u_i = 0, 1 \}$$
+and
+$$E(Q_n) = \{ uv \ | \ u, v \text{ binary words differing in exactly one letter} \}.$$
+What are the sizes of $V(Q_n)$ and $E(Q_n)$?
 
-as a rational function.
+\item Assuming all edges have weight 1, what is the distance in $Q_n$ from $00\dots00$ to $u = u_1u_2 \dots u_n$ ?
+What is the distance in $Q_n$ between two arbitrary words $u$ and $v$?
+
+\item Orient the edge $k = uv$  of $Q_n$ so that  $u = k^-$ and $v = k^+$ if the word $v$ contains more $1$'s  than $u$.
+Prove that the orientation is acyclic. Which word corresponds to a sink and which word is a source?
 
 
-This is just regular text.
+\end{enumerate}
+
+
+\end{problem}
+
+
+\begin{problem}
+{\bf Greedy algorithms}
+
+Consider the graph $G$ with weight function prescribed along its edges:
+
+
+ \begin{center}\newcommand\size{3}% distance of nodes from center
+
+\begin{tikzpicture}
+
+\draw [thick,black] (0,0)-- (18:\size)  node [above, midway] {3};
+\draw [thick,black] (0,0)-- (90:\size)  node [left, midway] {2};
+\draw [thick,black] (0,0)-- (162:\size)  node [above, midway] {1};
+\draw [thick,black] (0,0)-- (234:\size)  node [above, midway] {1};
+\draw [thick,black] (0,0)-- (306:\size)  node [above, midway] {3};
+
+
+  \draw[thick,black]  (18:\size)--(90:\size) node [above, midway] {4};
+    \draw[thick,black]  (90:\size)--(162:\size) node [above, midway] {2};
+    \draw[thick,black]  (162:\size)--(234:\size) node [left, midway] {3};
+    \draw[thick,black]  (234:\size)--(306:\size) node [above, midway] {2};
+     \draw[thick,black]  (18:\size)--(306:\size) node [right, midway] {4};
+
+      \node[black,circle,draw, fill= white, inner sep=2pt] at (18:\size){$u_1$};
+  \node[black,circle,draw, fill= white, inner sep=2pt] at (90:\size){$u_0$};
+   \node[black,circle,draw, fill= white, inner sep=2pt]at (162:\size){$u_4$};
+      \node[black,circle,draw, fill= white, inner sep=2pt] at (234:\size){$u_3$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (306:\size){$u_2$};
+         \node[black,circle,draw, fill= white, inner sep=2pt] at (0:0){$u_5$};
+ \end{tikzpicture}
+ \end{center}
+
+\begin{enumerate}
+
+\item Run Dijkstra's algorithm from starting vertex  $u_0$ to find a tree containing all minimal weight paths from $u_0$ with the prescribed weight function.
+Write down which edge and vertex is selected at each step of the algorithm.
+
+What is the length of the shortest weighted path in $G$ from $u_0$ to $u_3$?
+
+
+\item Run Kruskal's algorithm to find a minimal spanning tree of $G$ for the given weight function.
+
+What is the weight of a  minimal spanning tree in $G$?
+Is there a unique minimal spanning tree in $G$ with this weight function?
+
+\item Show that if the greedy algorithm on matroids from Theorem 7.13  can select two distinct bases  $B_1$ and  $B_2$ of minimal weight, then there must exist
+$s_1 \in B_1$ and $s_2 \in B_2$ such that $w(s_1) = w(s_2)$.
+Conclude that if the weight function $w : S \to \mathbb{R}$  is an injective  map then the greedy algorithm selects a unique minimal basis of a matroid.
+
+Find an example of a weighted graph which shows that the converse to the above statement is false. Namely that there is a graph $G$ with weight function  $w : E \to \mathbb{R}$  which is not injective but the greedy algorithm still selects a unique minimal spanning tree.
+
+
+\end{enumerate}
+
+\end{problem}
+\newpage
+
+\begin{problem}{\bf{Matchings}}
+\begin{enumerate}
+\item
+Consider the bipartite graph:
+
+
+\begin{center}
+\begin{tikzpicture}
+   \graph[nodes={draw, circle}, radius=.25cm,
+           branch down=1 cm,       grow right sep=4cm]
+           {subgraph I_nm [V={a, b, c, d}, W={1,...,4}];
+  a -- { 2};
+  b -- { 3, 4 };
+  c -- { 1,2 };
+  d -- { 1,2}
+};
+\end{tikzpicture}
+\end{center}
+Determine the matching number of $G$ and find a maximal matching.
+
+
+\item The hypercube graph  $Q_n$ is bipartite, with the two disjoint vertex sets being determined by the binary  words containing an even or odd number of $1$'s.
+The matching number of $Q_n$ is $2^{n-1}$. Describe a maximal matching of $Q_n$.
+
+
+ \item
+Let  $S$ be the set of binary words of length $n$ with $k$ number of $1's$ and let $T$ be the set of binary words of length $n$ with $k+1$ number of  $1$'s.
+Let $E = \{st \ | \ s, t \text{ differ in exactly one letter}  \}$ and set  $H = (S \cup T, E)$ (notice $H$ is an induced subgraph of $Q_n$).
+
+\begin{itemize}
+\item What are  the degrees in $H$  of vertices in $S$ and vertices in $T$?
+
+\item Prove that for any subset $A$ of $S$  we have $(k+1) |N(A)|  \geq (n-k)  |A|.$
+
+Hint: consider the set of edges incident to $A$ and the set of edges incident to $N(A)$.
+
+\item Use Hall's matching condition to conclude that $m(H) = |S| $ for  $k <n/2$.
+\end{itemize}
+
+
+Conclude that there exists an injective map $f$ from the subsets of size $k$ of $\{1, \dots, n\}$ to the subsets of size $k+1$ of $\{1, \dots ,n\}$
+satisfying $I \subset f(I)$ for $k < n/2$.
+
+
+\end{enumerate}
+
+
+\end{problem}
