@@ -11,12 +11,6 @@
 1. Use a counting argument to show that  the Stirling numbers of the second kind satisfy $S_{n, 2} = 2^{n-1} -1$ for $n\geq 1$ (recall  that $S_{0, k} = 0$). Express the generating function $$\mathcal{S}_2(z) = \sum_{n = 0}^\infty S_{n, 2} z^n$$ as a rational function.
 
    #+begin_answer
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod dolor non orci faucibus mattis ac ut purus. Phasellus commodo lorem id sem eleifend imperdiet. Nam commodo id leo et pharetra. Nunc in dui eget dolor fermentum bibendum. Proin porttitor erat tellus, vitae ultricies nunc dictum sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas velit turpis, feugiat eu dapibus luctus, ultrices eu dolor. Vestibulum sit amet cursus sem, ut aliquet felis. Maecenas sit amet felis ut tellus lobortis posuere. Morbi bibendum diam bibendum, facilisis libero in, commodo purus. Curabitur ac pretium turpis, id porttitor nibh.
-
-   Nam non nulla in ex consectetur blandit blandit vel nulla. Nunc blandit eleifend lacus et accumsan. Nunc ac nibh iaculis, auctor orci vitae, viverra turpis. Proin aliquet augue non cursus congue. In hac habitasse platea dictumst. In mattis placerat odio sed accumsan. Duis a mattis nisi. Etiam condimentum semper mi vel facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque luctus et massa in sagittis.
-
-   Proin fermentum augue felis, a placerat tortor dictum vulputate. Cras sit amet viverra massa. In condimentum odio non urna malesuada faucibus. Proin et felis ac metus bibendum porttitor vitae sit amet turpis. Donec euismod at libero sagittis fermentum. Nam ac metus ullamcorper, laoreet elit non, mollis velit. Donec ornare sem tortor, quis convallis leo blandit eget. Etiam et lacinia ante. Fusce ut leo efficitur urna ullamcorper porttitor. Vivamus gravida nunc leo, nec vulputate lacus aliquet non. Fusce vestibulum orci eu justo efficitur sollicitudin.
-
    #+end_answer
 
 2. Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for $\mathcal{S}_2(z)$ to prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
