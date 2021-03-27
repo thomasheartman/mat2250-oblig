@@ -1,0 +1,43 @@
+#+title: MAT2250 mandatory assignment
+#+author: Thomas Heartman
+#+date: {{{time(%Y-%m-%d)}}}
+#+options: toc:nil
+#+latex_class: article
+#+latex_class_options: [12pt, a4paper, article, oneside, oldfontcommands]
+#+latex_header: \declaretheorem[style = definition]{problem}
+#+latex_header: \declaretheorem[style = definition, sibling = problem]{exercise}
+
+
+This is my introductory paragraph.
+
+
+\begin{problem}
+{\bf Stirling numbers of the 2nd kind and generating functions}
+
+\begin{enumerate}
+\item Use a counting argument to show that  the Stirling numbers of the second kind satisfy $S_{n, 2} = 2^{n-1} -1$ for $n\geq 1$ (recall  that $S_{0, k} = 0$). Express the generating function
+
+$$\mathcal{S}_2(z) = \sum_{n = 0}^\infty S_{n, 2} z^n$$
+
+as a rational function.
+
+If I try and insert some text here as response to the problem, does that work?
+
+\item Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for
+$\mathcal{S}_2(z) $ to
+prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
+
+\item Use a partial fraction decomposition of the generating function $\mathcal{S}_3(z) $ to obtain a closed formula for $S_{n, 3}$.
+\end{enumerate}
+
+
+* Stirling numbers of the 2^nd kind and generating functions
+
+Use a counting argument to show that  the Stirling numbers of the second kind satisfy $S_{n, 2} = 2^{n-1} -1$ for $n\geq 1$ (recall  that $S_{0, k} = 0$). Express the generating function
+
+$$\mathcal{S}_2(z) = \sum_{n = 0}^\infty S_{n, 2} z^n$$
+
+as a rational function.
+
+
+This is just regular text.
