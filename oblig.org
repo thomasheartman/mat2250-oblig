@@ -70,11 +70,7 @@
    character. Thus, every vertex of the hypercube graph must have
    degree $n$.
 
-   Theorem 6.1 in Aigner states that:
-
-   #+begin_theorem
-   Let G = (V, E) be a graph. Then $$\sum_{u \in V}d(u) = 2|E|$$.
-   #+end_theorem
+   Theorem 6.1 in Aigner states that: Let G = (V, E) be a graph. Then $$\sum_{u \in V}d(u) = 2|E|$$.
 
    In other words: Every edge in $E$ connects to exactly two vertices.
 
@@ -83,7 +79,58 @@
 
 2. Assuming all edges have weight 1, what is the distance in $Q_n$ from $00\dots00$ to $u = u_1u_2 \dots u_n$ ? What is the distance in $Q_n$ between two arbitrary words $u$ and $v$?
 
+   #+begin_answer
+   To get from $00\dots00$ to $u = u_1 u_2 \dots u_n$ we need to traverse
+   as many edges as there are ones in $u$. In other words, if you treat
+   $u$ as a sequence of numbers, you can take the sum of these numbers
+   and find the distance.
+
+   More generally, we can expand this to the distance between two
+   arbitrary vertices by treating each word as a vector and
+   subtracting one from the other. The resulting vector will be a vector $w$
+   of length $n$ with each term being one of $-1$, $0$, and $1$.
+   Here, every non-zero term $c$ of $w$ indicates that $u$ and $v$
+   differ at index $c$. Because every edge takes us one step
+   closer to our goal, the distance between $u$ and $v$ is the number
+   of non-zero terms of $w$.
+
+   More succinctly, this can be thought of as $u \xor v$, where $\xor$
+   is the "exclusive or" logical operation. (might have to use \oplus
+   \veebar). Summing this binary word yields the distance from $u$ to $v$.
+   #+end_answer
+
 3. Orient the edge $k = uv$  of $Q_n$ so that  $u = k^-$ and $v = k^+$ if the word $v$ contains more $1$'s  than $u$. Prove that the orientation is acyclic. Which word corresponds to a sink and which word is a source?
+
+   #+begin_answer
+   If an edge is directed from $u$ to $v$ if and only if $v$ has more
+   $1$'s than $u$, then the graph's source must be $00\dots00$ and the
+   sink $11\dots11$.
+
+   #+begin_proof
+   Aigner says that: A graph $\ar{G}$ that contains no directed
+   circuits is called /acyclic/. Every undirected graph $G$ can be
+   made into an acyclic graph through a suitable orientation. If we
+   can number the vertices $u_1, u_2 \dots u_n$, and for u_iu_j \in $E$
+   always choose the orientation $u_i \rightarrow u_2$ with $i \lt j$, a
+   directed path $u_1, u_2, \dots, u_n$ would then satisfy $i_1 \lt i_2 \lt
+   i_3 \lt \cdots$, and thus never close into a circuit.
+
+   Thus, to prove that the orientation on $Q_n$ is acyclic, it suffices
+   to prove that every path from the source $u$ to any other vertex in
+   the graph satisfies this condition.
+
+   Let's examine an arbitrary word $w$ in $Q_n$. It's a binary word of
+   length $n$, with $m$ $1$'s and $n-m$ $0$'s
+   Its vertex degree
+   $n$,
+
+   To prove that this orientation is acyclic, it
+   - that no word has any neighbors with equally many $1$'s.
+   - that any two words with equally many $1$'s are never connected.
+   - by contradiction: assume that there is a cycle,
+
+   #+end_proof
+   #+end_answer
 
 #+end_problem
 
