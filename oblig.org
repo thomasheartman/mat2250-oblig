@@ -18,14 +18,14 @@
    Stirling numbers of the second kind: $S_{n, k} = S_{n-1, k-1} + k S_{n-1,
    k}$. Let /X/ be an /n/-set and /a/ \in /X/. Then the first summand is
    the number of set partitions where /a/ is the only element of its
-   partition. That is, /a/ \in some partition /A/, $|A| = 1$. This
-   leaves us to partition the remaining $n - 1$ elements into $k-1$
-   partitions. For the second summand, assume that /a/ is not the only
-   member of its partition. That means, we can remove /a/, and still
-   have /k/ non-empty partitions, yielding $S_{n-1, k}$. Because
-   inserting /a/ into any of these /k/ partitions would yield a
-   different configuration, we have to multiply $S_{n-1,k}$ by /k/ to get
-   all possible configurations.
+   partition. That is, let $P_{k}$ be the /k/-th partition of $X$, $a \in
+   P_k$, and $|P_k| = 1$. This leaves us to partition the remaining $n -
+   1$ elements into $k-1$ partitions. For the second summand, assume
+   that /a/ is not the only member of its partition. That means we
+   can remove /a/, and still have /k/ non-empty partitions, yielding
+   $S_{n-1, k}$. Because inserting /a/ into any of these /k/ partitions
+   would yield a different configuration, we have to multiply $S_{n-1,k}$
+   by /k/ to get all possible configurations.
 
    In our case, however, we're only dealing with partitioning a set
    into 2, so the recurrence relation takes on the simpler form $S_{ n,2
@@ -46,8 +46,9 @@
    & = 1 + 2^{n-1} - 2 \\
    & = 2^{n-1} - 1
    \end{align*}
-
    #+end_answer
+
+
 
 2. Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for $\mathcal{S}_2(z)$ to prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
 
