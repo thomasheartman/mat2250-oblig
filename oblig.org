@@ -313,4 +313,35 @@ Consider the graph $G$ with weight function prescribed along its edges:
    - Use Hall's matching condition to conclude that $m(H) = |S|$ for  $k <n/2$.
 
    Conclude that there exists an injective map $f$ from the subsets of size $k$ of $\{1, \dots, n\}$ to the subsets of size $k+1$ of $\{1, \dots ,n\}$ satisfying $I \subset f(I)$ for $k < n/2$.
+
+   #+begin_answer
+   On the degrees in $H$ of vertices in $S$ and vertices in $T$:
+   Because the vertices in $S$ can only connect to vertices with more
+   $1$'s in them, we can only flip the characters in $s \in S$ that are
+   $0$. Thus, $d(s) = n - k \forall s \in S$. For the vertices in $T$, this is
+   the opposite: we can only flip the characters in $T$ which are
+   $1$'s and there are $k + 1$ of them. Thus $d(t) = k + 1 \forall t \in T$.
+
+   *Claim:* for any subset $A$ of $S$, we have $(k + 1)|N(A)| \ge (n-k)|A|$$.
+
+   #+begin_proof
+   Note: this is completely wrong. Utter garbage. Ignore this for now.
+   Notice that $(n-k)|A|$ is equal to the number of neighbors of $A$.
+
+   That is, based on what we have found before, $|N(A)| = (n-k)|A|$.
+   As such, we can rewrite the claim as $(k+1)|N(A) \ge |N(A)|$ and it
+   suffices to show that $k + 1 \ge 1$ .
+
+   Since we know that $k$ is non-negative --- it doesn't make sense to
+   talk of binary words containing a negative number of $1$'s --- this is
+   self-evident. This completes the proof.
+   #+end_proof
+
+   *Hall's matching condition*: Let $G = (S + T, E)$ be a bipartite
+   graph. Then $m(G) = |S$ if and only if $|A| \le |N(A)|$ for all $A \sube S$.
+
+
+
+   #+end_answer
+
 #+end_problem
