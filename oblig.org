@@ -60,6 +60,27 @@
 
 1. Recall the hypercube graph is $Q_n = (V(Q_n), E(Q_n))$ where $$V(Q_n) = \{ u_1 \dots u_n \ | \ u_i = 0, 1 \}$$ and $$E(Q_n) = \{ uv \ | \ u, v \text{ binary words differing in exactly one letter} \}.$$ What are the sizes of $V(Q_n)$ and $E(Q_n)$?
 
+   #+begin_answer
+   If $V(Q_n) = \{u_1 \dots u_n | u_i = 0, 1\}$, then the size of $V(Q_n)$
+   is the number of binary words of length $n$. In other words,
+   $|V(Q_n)| = 2^n$.
+
+   For every binary word of length $n$, there are exactly $n$ other
+   binary words of the same length that differ in exactly one
+   character. Thus, every vertex of the hypercube graph must have
+   degree $n$.
+
+   Theorem 6.1 in Aigner states that:
+
+   #+begin_theorem
+   Let G = (V, E) be a graph. Then $$\sum_{u \in V}d(u) = 2|E|$$.
+   #+end_theorem
+
+   In other words: Every edge in $E$ connects to exactly two vertices.
+
+   Using this, we find that $E(Q_n) = \frac{n2^n}{2} = n2^{n-1}$.
+   #+end_answer
+
 2. Assuming all edges have weight 1, what is the distance in $Q_n$ from $00\dots00$ to $u = u_1u_2 \dots u_n$ ? What is the distance in $Q_n$ between two arbitrary words $u$ and $v$?
 
 3. Orient the edge $k = uv$  of $Q_n$ so that  $u = k^-$ and $v = k^+$ if the word $v$ contains more $1$'s  than $u$. Prove that the orientation is acyclic. Which word corresponds to a sink and which word is a source?
