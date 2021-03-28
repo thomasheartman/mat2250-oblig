@@ -152,31 +152,32 @@
 Consider the graph $G$ with weight function prescribed along its edges:
 
 
- \begin{center}\newcommand\size{3}% distance of nodes from center
+  \begin{center}\newcommand\size{3}% distance of nodes from center
 
-\begin{tikzpicture}
+    \begin{tikzpicture}
 
-\draw [thick,black] (0,0)-- (18:\size)  node [above, midway] {3};
-\draw [thick,black] (0,0)-- (90:\size)  node [left, midway] {2};
-\draw [thick,black] (0,0)-- (162:\size)  node [above, midway] {1};
-\draw [thick,black] (0,0)-- (234:\size)  node [above, midway] {1};
-\draw [thick,black] (0,0)-- (306:\size)  node [above, midway] {3};
+      \draw [thick,black] (0,0)-- (18:\size)  node [above, midway] {3};
+      \draw [thick,black] (0,0)-- (90:\size)  node [left, midway] {2};
+      \draw [thick,black] (0,0)-- (162:\size)  node [above, midway] {1};
+      \draw [thick,black] (0,0)-- (234:\size)  node [above, midway] {1};
+      \draw [thick,black] (0,0)-- (306:\size)  node [above, midway] {3};
 
 
-  \draw[thick,black]  (18:\size)--(90:\size) node [above, midway] {4};
-    \draw[thick,black]  (90:\size)--(162:\size) node [above, midway] {2};
-    \draw[thick,black]  (162:\size)--(234:\size) node [left, midway] {3};
-    \draw[thick,black]  (234:\size)--(306:\size) node [above, midway] {2};
-     \draw[thick,black]  (18:\size)--(306:\size) node [right, midway] {4};
+      \draw[thick,black]  (18:\size)--(90:\size) node [above, midway] {4};
+      \draw[thick,black]  (90:\size)--(162:\size) node [above, midway] {2};
+      \draw[thick,black]  (162:\size)--(234:\size) node [left, midway] {3};
+      \draw[thick,black]  (234:\size)--(306:\size) node [above, midway] {2};
+      \draw[thick,black]  (18:\size)--(306:\size) node [right, midway] {4};
 
       \node[black,circle,draw, fill= white, inner sep=2pt] at (18:\size){$u_1$};
-  \node[black,circle,draw, fill= white, inner sep=2pt] at (90:\size){$u_0$};
-   \node[black,circle,draw, fill= white, inner sep=2pt]at (162:\size){$u_4$};
+      \node[black,circle,draw, fill= white, inner sep=2pt] at (90:\size){$u_0$};
+      \node[black,circle,draw, fill= white, inner sep=2pt]at (162:\size){$u_4$};
       \node[black,circle,draw, fill= white, inner sep=2pt] at (234:\size){$u_3$};
-       \node[black,circle,draw, fill= white, inner sep=2pt] at (306:\size){$u_2$};
-         \node[black,circle,draw, fill= white, inner sep=2pt] at (0:0){$u_5$};
- \end{tikzpicture}
- \end{center}
+      \node[black,circle,draw, fill= white, inner sep=2pt] at (306:\size){$u_2$};
+      \node[black,circle,draw, fill= white, inner sep=2pt] at (0:0){$u_5$};
+    \end{tikzpicture}
+  \end{center}
+
 
 1. Run Dijkstra's algorithm from starting vertex  $u_0$ to find a tree containing all minimal weight paths from $u_0$ with the prescribed weight function. Write down which edge and vertex is selected at each step of the algorithm.
 
