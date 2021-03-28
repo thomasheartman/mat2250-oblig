@@ -106,6 +106,8 @@
    $1$'s than $u$, then the graph's source must be $00\dots00$ and the
    sink $11\dots11$.
 
+   Next, let's examine why the orientation is acyclic.
+
    #+begin_proof
    Aigner says that: A graph $\ar{G}$ that contains no directed
    circuits is called /acyclic/. Every undirected graph $G$ can be
@@ -117,18 +119,28 @@
 
    Thus, to prove that the orientation on $Q_n$ is acyclic, it suffices
    to prove that every path from the source $u$ to any other vertex in
-   the graph satisfies this condition.
+   the graph satisfies the condition that $u_n \lt u_{n+1}$ when ordered
+   according to the number of $1$'s in their respective words.
 
-   Let's examine an arbitrary word $w$ in $Q_n$. It's a binary word of
-   length $n$, with $m$ $1$'s and $n-m$ $0$'s
-   Its vertex degree
-   $n$,
+   If you take two binary words $a$ and $b$ that differ in only one
+   character, the difference in number of $1$'s will always be $1$. If
+   the character that differs is a $0$ in $a$, then it must be a $1$
+   in $b$ and $b$ has one more $1$ than $a$. If the character is $1$
+   in $a$, then it must be $0$ in $b$ and $a$ has one more $1$ than
+   $b$.
 
-   To prove that this orientation is acyclic, it
-   - that no word has any neighbors with equally many $1$'s.
-   - that any two words with equally many $1$'s are never connected.
-   - by contradiction: assume that there is a cycle,
+   By definition, every word in $Q_n$ connects only to other words that
+   differ in exactly one character. In other words, there is an unambiguous
+   orientation between any two connected vertices.
 
+   From this, we find that every word in $Q_n$ connects only to other
+   words where there is a clear orientation. Or, put another way, a
+   word $w_1$  is never connected to another word $w_2$ if they have the
+   same number of $1$'s.
+
+   Because every edge $u_iu_j \in E(Q_n)$ has a clear orientation, we can
+   conclude that any set of edges in $E(Q_n)$ can never close into a
+   circuit, and the proof is complete.
    #+end_proof
    #+end_answer
 
