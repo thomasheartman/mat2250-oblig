@@ -222,6 +222,35 @@ Consider the graph $G$ with weight function prescribed along its edges:
 
    Find an example of a weighted graph which shows that the converse to the above statement is false. Namely that there is a graph $G$ with weight function  $w : E \to \mathbb{R}$  which is not injective but the greedy algorithm still selects a unique minimal spanning tree.
 
+   #+begin_answer
+   Assume $B_1$ and $B_2$ are distinct bases of minimal weight. For
+   these two bases to coexist, there must exist $s_1 \in B_{1}$ and $s_2
+   \in B_2$ such that $w(s_1) = w(s_2)$ because of how the greedy algorithm works.
+
+   Let $A_i \sube S$ be the elements chosen after $i$ steps of the
+   algorithm and $X_i = { x \in S \setminus A_i \ | \ A_i \cup {x} \in \mathcal{U} }$
+
+   From the description, the algorithm always chooses some unselected
+   edge of /minimal/ weight. That means that if there are two distinct
+   bases of the same minimal weight, then the algorithm must have been
+   presented with a choice between two distinct edges of equal weight
+   at some point.
+
+   From this, we can conclude that if every edge has a unique weight,
+   that is $w(s_i) \ne w(s_j) \forall i,j \in S$, then the minimal basis
+   produced by the algorithm will also be unique. In other words: if
+   the weight function $w : S \rightarrow \mathbb{R}$ is injective, then the
+   minimal basis chosen by the algorithm is unique.
+
+   Regarding examples of a graph G with a non-injective weight
+   function $w : E \rightarrow \mathbb{R}$ that still produces a unique minimal
+   spanning tree, we needn't look further than paths. If G is a path,
+   meaning every vertex has degree at least $1$ and at most $2$, then
+   any algorithm that creates a spanning tree must by necessity choose
+   every edge, regardless of what the weight function is. This is also
+   true for trees and any graph without circuits.
+   #+end_answer
+
 #+end_problem
 
 #+begin_problem
