@@ -258,21 +258,50 @@ Consider the graph $G$ with weight function prescribed along its edges:
 
 1. Consider the bipartite graph:
    \begin{center}
-   \begin{tikzpicture}
-      \graph[nodes={draw, circle}, radius=.25cm,
-              branch down=1 cm,       grow right sep=4cm]
-              {subgraph I_nm [V={a, b, c, d}, W={1,...,4}];
-     a -- { 2};
-     b -- { 3, 4 };
-     c -- { 1,2 };
-     d -- { 1,2}
-   };
-   \end{tikzpicture}
+     \begin{tikzpicture}
+       \graph[nodes={draw, circle}, radius=.25cm,
+         branch down=1 cm,       grow right sep=4cm]
+             {subgraph I_nm [V={a, b, c, d}, W={1,...,4}];
+               a -- { 2};
+               b -- { 3, 4 };
+               c -- { 1,2 };
+               d -- { 1,2}
+             };
+     \end{tikzpicture}
    \end{center}
 
    Determine the matching number of $G$ and find a maximal matching.
 
+   #+begin_answer
+   The matching number of $G$ is $3$, and a maximal matching could
+   look like this:
+
+
+   \begin{center}
+     \begin{tikzpicture}
+       \graph[nodes={draw, circle}, radius=.25cm,
+         branch down=1 cm,       grow right sep=4cm]
+             {subgraph I_nm [V={a, b, c, d}, W={1,...,4}];
+               b -- {  3 };
+               c -- { 1 };
+               d -- { 2}
+             };
+     \end{tikzpicture}
+   \end{center}
+   #+end_answer
+
 2. The hypercube graph  $Q_n$ is bipartite, with the two disjoint vertex sets being determined by the binary  words containing an even or odd number of $1$'s. The matching number of $Q_n$ is $2^{n-1}$. Describe a maximal matching of $Q_n$.
+
+   #+begin_answer
+   A simple, maximal matching of $Q_n$ would be to interpret the binary
+   words as binary numbers, and then match every even number with its
+   successor. Because the difference in representation between a
+   number and its successor in binary will always change the value of
+   the last character, this is an easy matching to make.
+
+   Thus, the edges of the graph are $u_{2k}u_{2k + 1}$ for $0 \le k \lt
+   \frac{n}{2}$.
+   #+end_answer
 
 3. Let  $S$ be the set of binary words of length $n$ with $k$ number of $1's$ and let $T$ be the set of binary words of length $n$ with $k+1$ number of  $1$'s. Let $E = \{st \ | \ s, t \text{ differ in exactly one letter}  \}$ and set  $H = (S \cup T, E)$ (notice $H$ is an induced subgraph of $Q_n$).
    - What are  the degrees in $H$  of vertices in $S$ and vertices in $T$?
