@@ -12,11 +12,7 @@
 
    #+begin_answer
    First, let's show that the Stirling numbers of the second kind
-   satisfy $S_{n, 2} = 2^{n-1} - 1$ for $n \ge 1$. We'll look at them in a
-   few different ways: we'll look at the recurrence relation and
-   explain why the counting is correct; we'll look at an inductive
-   proof for why this is always $2^{n-1} -1$, and finally, we'll see a
-   bijection to binary strings that we can use four counting.
+   satisfy $S_{n, 2} = 2^{n-1} - 1$ for $n \ge 1$.
 
    Let's start by analyzing the well-known recurrence relation for
    Stirling numbers of the second kind: $S_{n, k} = S_{n-1, k-1} + k S_{n-1,
@@ -51,22 +47,6 @@
    & = 2^{n-1} - 1
    \end{align*}
 
-   Finally, let's look at a bijection to the set of binary strings of
-   length $n$ that start with a $0$. We'll let each character of
-   the string represent a single element of the set, and its value is
-   whether it's in set $A$ or $B$. For simplicity's sake, we'll place
-   all elements represented by a 0 in $A$, and all characters
-   represented by a 1 in $B$.
-
-   We know that there are $2^n$ possible permutations of a binary string of
-   length $n$. However, because two sets $A$ and $B$ are equal if they
-   contain the same elements, half of these $2^n$ configurations are
-   indistinguishable from the other half (their /flipped/
-   counterparts, e.g. $010$ and $101$). Assuming our set has a partial
-   order, we can fix the first element (our 0), and look at the $2^{n-1}$
-   remaining possible permutations. Of those, there is only a single
-   one that is invalid: the permutation of all zeroes (meaning that
-   every element is in the same partition).
    #+end_answer
 
 2. Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for $\mathcal{S}_2(z)$ to prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
