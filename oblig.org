@@ -334,35 +334,12 @@ Consider the graph $G$ with weight function prescribed along its edges:
    Next, let's examine $N(A)$. We know that every $t \in T$ has degree
    $k+1$ and that $N(A)$ is a subset of $T$. Thus, no $v \in N(A)$ can
    have degree $> k + 1$ and the maximal possible number of edges
-   connecting to $N(A)$ is $(k + 1)|N(A)$ and we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
+   connecting to $A$ is $(k + 1)|N(A)$. Thus we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
 
-   Said differently: if every $deg(v) = k + 1 \forall v \in N(A)$, then $(k +
+   Said differently: if $deg(v) = k + 1 \forall v \in N(A)$, then $(k +
    1)|N(A)| = (n-k)|A|$. If there is a vertex with degree less than
    $k + 1$, then that means it connects to a $u \in S \setminus A$ and we have
    that $(k + 1)|N(A)| > (n-k)|A|$. This completes the proof.
-
-   The claim,
-   if proven, can thus be used to infer that $|S| \geq |T|$.
-
-   Any two vertices in $A$ must differ in /at least/ $2$ places and at
-   most $2n$ places (one of $2(1,2\dots,n) places).
-
-   On a smaller scale, however,
-
-   Notice that $k \geq \ceil{\frac{n}{2}} \Rightarrow n - k < k + 1$. Thus if we
-   can prove that $|A| + 1 \leq |N(A)|$ for $k > \frac{n}{2}$, then we
-   have covered half the cases.
-
-   Note: this is completely wrong. Utter garbage. Ignore this for now.
-   Notice that $(n-k)|A|$ is equal to the number of neighbors of $A$.
-
-   That is, based on what we have found before, $|N(A)| = (n-k)|A|$.
-   As such, we can rewrite the claim as $(k+1)|N(A) \ge |N(A)|$ and it
-   suffices to show that $k + 1 \ge 1$ .
-
-   Since we know that $k$ is non-negative --- it doesn't make sense to
-   talk of binary words containing a negative number of $1$'s --- this is
-   self-evident. This completes the proof.
    #+end_proof
 
    *Hall's matching condition*: Let $G = (S + T, E)$ be a bipartite
