@@ -357,9 +357,28 @@ Consider the graph $G$ with weight function prescribed along its edges:
    We also proved that $(k+1)|N(A)| \geq (n-k)|A| \forall A \subseteq S$. Using
    this and the fact that for $k < \frac{n}{2}, |S| < |T|$ and $k+1 \leq
    n-k$, we can conclude that $|A| < |N(A)| \forall A \subseteq S$ and that
-   $m(G) = |S|$ when $k < \frac{n}{2}$.
+   $m(H) = |S|$ when $k < \frac{n}{2}$.
 
-   Finally
+   Finally, let's turn our attention to concluding that there exists
+   an injective map $f$ from the subsets of size $k$ of ${1,\dots,n_{}}$ to
+   the subsets of size $k +1$ of ${1,\dots,n}$ satisfying $I \subset f(I)$ for
+   $k < \frac{n}{2}$. While the relation might not be at obvious at
+   first, this is actually the same problem as the one we just solved.
+
+   We can represent the subsets of size $k$ as binary strings of
+   length $n$ where $1$ means the element is included and $0$ means it
+   isn't. Assume that the binary strings represent the elements in
+   ascending order (though any ordering would work).
+
+   Satisfying $I \subset f(I)$ then turns into the act of adding one extra
+   element into the set. As we have seen, there are $n-k$ choices for
+   which element to choose, and it maps to flipping one of the
+   $0$-characters in the binary representation.
+
+   Because we have also seen that $m(H) = |S|$ for $k<\frac{n}{2}$, we
+   can then conclude that there exists an injective (but not
+   surjective!) map from the $k$-subsets to the $(k-1)$-subsets of
+   ${1,\dots,n}$ where $I \subset f(I)$ for $k < \frac{n}{2}$.
    #+end_answer
 
 #+end_problem
