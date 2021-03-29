@@ -343,10 +343,23 @@ Consider the graph $G$ with weight function prescribed along its edges:
    #+end_proof
 
    *Hall's matching condition*: Let $G = (S + T, E)$ be a bipartite
-   graph. Then $m(G) = |S$ if and only if $|A| \le |N(A)|$ for all $A \subseteq S$.
+   graph. Then $m(G) = |S|$ if and only if $|A| \le |N(A)|$ for all $A
+   \subseteq S$.
 
-   There are $\binom{n}{k}$ vertices in $S$ and $\binom{n}{k+1}$
+   Theorem 8.4: Let $G = (S + T, E)$ be a bipartite graph. Then
+   $$m(G) = |S| - \max_{A \subseteq S}(|A| - |N(A)|).$$_{}
 
+   There are $\binom{n}{k}$ vertices in $S$ and $\binom{n}{k+1}$ in
+   $T$. We know that the binomial coefficients increase strictly for
+   $0 \leq k \leq \frac{n}{2}$. If $k<\frac{n}{2}$, that means that $k +
+   1 \leq \frac{n}{2}$ and that $|T| > |S|$ .
+
+   We also proved that $(k+1)|N(A)| \geq (n-k)|A| \forall A \subseteq S$. Using
+   this and the fact that for $k < \frac{n}{2}, |S| < |T|$ and $k+1 \leq
+   n-k$, we can conclude that $|A| < |N(A)| \forall A \subseteq S$ and that
+   $m(G) = |S|$ when $k < \frac{n}{2}$.
+
+   Finally
    #+end_answer
 
 #+end_problem
