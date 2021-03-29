@@ -235,7 +235,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    at some point.
 
    From this, we can conclude that if every edge has a unique weight,
-   that is $w(s_i) \ne w(s_j) \forall i,j \in S$, then the minimal basis
+   that is $w(s_i) \ne w(s_j) \ \forall i,j \in S$, then the minimal basis
    produced by the algorithm will also be unique. In other words: if
    the weight function $w : S \rightarrow \mathbb{R}$ is injective, then the
    minimal basis chosen by the algorithm is unique.
@@ -316,9 +316,9 @@ Consider the graph $G$ with weight function prescribed along its edges:
    On the degrees in $H$ of vertices in $S$ and vertices in $T$:
    Because the vertices in $S$ can only connect to vertices with more
    $1$'s in them, we can only flip the characters in $s \in S$ that are
-   $0$. Thus, $d(s) = n - k \forall s \in S$. For the vertices in $T$, this is
+   $0$. Thus, $d(s) = n - k\  \forall s \in S$. For the vertices in $T$, this is
    the opposite: we can only flip the characters in $T$ which are
-   $1$'s and there are $k + 1$ of them. Thus $d(t) = k + 1 \forall t \in T$.
+   $1$'s and there are $k + 1$ of them. Thus $d(t) = k + 1 \ \forall t \in T$.
 
    *Claim:* for any subset $A$ of $S$, we have $(k + 1)|N(A)| \ge (n-k)|A|$.
 
@@ -336,7 +336,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    have degree $> k + 1$ and the maximal possible number of edges
    connecting to $A$ is $(k + 1)|N(A)$. Thus we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
 
-   Said differently: if $deg(v) = k + 1 \forall v \in N(A)$, then $(k +
+   Said differently: if $deg(v) = k + 1 \ \forall v \in N(A)$, then $(k +
    1)|N(A)| = (n-k)|A|$. If there is a vertex with degree less than
    $k + 1$, then that means it connects to a $u \in S \setminus A$ and we have
    that $(k + 1)|N(A)| > (n-k)|A|$. This completes the proof.
@@ -347,16 +347,16 @@ Consider the graph $G$ with weight function prescribed along its edges:
    \subseteq S$.
 
    Theorem 8.4: Let $G = (S + T, E)$ be a bipartite graph. Then
-   $$m(G) = |S| - \max_{A \subseteq S}(|A| - |N(A)|).$$_{}
+   $$m(G) = |S| - \max_{A \subseteq S}(|A| - |N(A)|).$$
 
    There are $\binom{n}{k}$ vertices in $S$ and $\binom{n}{k+1}$ in
    $T$. We know that the binomial coefficients increase strictly for
    $0 \leq k \leq \frac{n}{2}$. If $k<\frac{n}{2}$, that means that $k +
    1 \leq \frac{n}{2}$ and that $|T| > |S|$ .
 
-   We also proved that $(k+1)|N(A)| \geq (n-k)|A| \forall A \subseteq S$. Using
+   We also proved that $(k+1)|N(A)| \geq (n-k)|A| \ \forall A \subseteq S$. Using
    this and the fact that for $k < \frac{n}{2}, |S| < |T|$ and $k+1 \leq
-   n-k$, we can conclude that $|A| < |N(A)| \forall A \subseteq S$ and that
+   n-k$, we can conclude that $|A| < |N(A)| \ \forall A \subseteq S$ and that
    $m(H) = |S|$ when $k < \frac{n}{2}$.
 
    Finally, let's turn our attention to concluding that there exists
@@ -377,7 +377,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
 
    Because we have also seen that $m(H) = |S|$ for $k<\frac{n}{2}$, we
    can then conclude that there exists an injective (but not
-   surjective!) map from the $k$-subsets to the $(k-1)$-subsets of
+   surjective!) map from the \(k\)-subsets to the \((k+1)\)-subsets of
    ${1,\dots,n}$ where $I \subset f(I)$ for $k < \frac{n}{2}$.
    #+end_answer
 
