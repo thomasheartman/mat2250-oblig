@@ -61,7 +61,7 @@
 1. Recall the hypercube graph is $Q_n = (V(Q_n), E(Q_n))$ where $$V(Q_n) = \{ u_1 \dots u_n \ | \ u_i = 0, 1 \}$$ and $$E(Q_n) = \{ uv \ | \ u, v \text{ binary words differing in exactly one letter} \}.$$ What are the sizes of $V(Q_n)$ and $E(Q_n)$?
 
    #+begin_answer
-   If $V(Q_n) = \{u_1 \dots u_n | u_i = 0, 1\}$, then the size of $V(Q_n)$
+   If $V(Q_n) = \{u_1 \dots u_n \ | \ u_i = 0, 1\}$, then the size of $V(Q_n)$
    is the number of binary words of length $n$. In other words,
    $|V(Q_n)| = 2^n$.
 
@@ -94,9 +94,7 @@
    closer to our goal, the distance between $u$ and $v$ is the number
    of non-zero terms of $w$.
 
-   More succinctly, this can be thought of as $u \xor v$, where $\xor$
-   is the "exclusive or" logical operation. (might have to use \oplus
-   \veebar). Summing this binary word yields the distance from $u$ to $v$.
+   More succinctly, this can be thought of as $u \oplus v$ or $u XOR v$, where $\oplus$ is the "exclusive or" logical operation. ($\veebar$). Summing this binary word yields the distance from $u$ to $v$.
    #+end_answer
 
 3. Orient the edge $k = uv$  of $Q_n$ so that  $u = k^-$ and $v = k^+$ if the word $v$ contains more $1$'s  than $u$. Prove that the orientation is acyclic. Which word corresponds to a sink and which word is a source?
@@ -109,17 +107,17 @@
    Next, let's examine why the orientation is acyclic.
 
    #+begin_proof
-   Aigner says that: A graph $\ar{G}$ that contains no directed
+   Aigner says that: A graph $\overrightarrow{G}$ that contains no directed
    circuits is called /acyclic/. Every undirected graph $G$ can be
    made into an acyclic graph through a suitable orientation. If we
    can number the vertices $u_1, u_2 \dots u_n$, and for u_iu_j \in $E$
-   always choose the orientation $u_i \rightarrow u_2$ with $i \lt j$, a
-   directed path $u_1, u_2, \dots, u_n$ would then satisfy $i_1 \lt i_2 \lt
-   i_3 \lt \cdots$, and thus never close into a circuit.
+   always choose the orientation $u_i \rightarrow u_2$ with $i < j$, a
+   directed path $u_1, u_2, \dots, u_n$ would then satisfy $i_1 < i_2 <
+   i_3 < \cdots$, and thus never close into a circuit.
 
    Thus, to prove that the orientation on $Q_n$ is acyclic, it suffices
    to prove that every path from the source $u$ to any other vertex in
-   the graph satisfies the condition that $u_n \lt u_{n+1}$ when ordered
+   the graph satisfies the condition that $u_n < u_{n+1}$ when ordered
    according to the number of $1$'s in their respective words.
 
    If you take two binary words $a$ and $b$ that differ in only one
@@ -187,11 +185,11 @@ Consider the graph $G$ with weight function prescribed along its edges:
    Running Dijkstra's algorithm from starting vertex $u_0$ in $G$
    yields the following sequence of edges and vertices.
    1. Pick vertex $u_0$. No edges. $l(u_0) = 0$.
-   2. Pick vertex $u_5_{}$, using edge $u_{0}u_5$. $l(u_{ 5 }_{}) = 2$.
-   3. Pick vertex $u_4_{}$, using edge $u_{0}u_4$. $l(u_{ 4 }_{}) = 2$.
-   4. Pick vertex $u_3_{}$, using edge $u_{ 5 }u_3$. $l(u_{ 3 }_{}) = 2 + 1 = 3$.
-   5. Pick vertex $u_1_{}$, using edge $u_{ 0 }u_{1}$. $l(u_{ 1 }_{}) = 4$.
-   6. Pick vertex $u_2_{}$, using edge $u_{ 5 }u_{2}$. $l(u_{ 2 }_{}) = 2 + 3 = 5$.
+   2. Pick vertex $u_5$, using edge $u_{0}u_5$. $l(u_{ 5 }) = 2$.
+   3. Pick vertex $u_4$, using edge $u_{0}u_4$. $l(u_{ 4 }) = 2$.
+   4. Pick vertex $u_3$, using edge $u_{ 5 }u_3$. $l(u_{ 3 }) = 2 + 1 = 3$.
+   5. Pick vertex $u_1$, using edge $u_{ 0 }u_{1}$. $l(u_{ 1 }) = 4$.
+   6. Pick vertex $u_2$, using edge $u_{ 5 }u_{2}$. $l(u_{ 2 }) = 2 + 3 = 5$.
 
    For the last step, we can choose between edges $u_{5}u_{2}$ and $u_{3}u_{2}$ as
    they both end up with the same distance ($2 + 3$ and $2 + 1 + 2$,
@@ -227,8 +225,8 @@ Consider the graph $G$ with weight function prescribed along its edges:
    these two bases to coexist, there must exist $s_1 \in B_{1}$ and $s_2
    \in B_2$ such that $w(s_1) = w(s_2)$ because of how the greedy algorithm works.
 
-   Let $A_i \sube S$ be the elements chosen after $i$ steps of the
-   algorithm and $X_i = { x \in S \setminus A_i \ | \ A_i \cup {x} \in \mathcal{U} }$
+   Let $A_i \subseteq S$ be the elements chosen after $i$ steps of the
+   algorithm and $X_i = \{ x \in S \setminus A_i \ | \ A_i \cup \{x\} \in \mathcal{U} \}$
 
    From the description, the algorithm always chooses some unselected
    edge of /minimal/ weight. That means that if there are two distinct
@@ -299,7 +297,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    number and its successor in binary will always change the value of
    the last character, this is an easy matching to make.
 
-   Thus, the edges of the graph are $u_{2k}u_{2k + 1}$ for $0 \le k \lt
+   Thus, the edges of the graph are $u_{2k}u_{2k + 1}$ for $0 \leq k <
    \frac{n}{2}$.
    #+end_answer
 
@@ -322,9 +320,39 @@ Consider the graph $G$ with weight function prescribed along its edges:
    the opposite: we can only flip the characters in $T$ which are
    $1$'s and there are $k + 1$ of them. Thus $d(t) = k + 1 \forall t \in T$.
 
-   *Claim:* for any subset $A$ of $S$, we have $(k + 1)|N(A)| \ge (n-k)|A|$$.
+   *Claim:* for any subset $A$ of $S$, we have $(k + 1)|N(A)| \ge (n-k)|A|$.
 
    #+begin_proof
+
+   We know that $n-k$ is the degree of each vertex in $S$. We also
+   know that the degree of each vertex in $T$ is $k + 1$. From this,
+   we have that    $(k+1)|T| = (n - k)|S| = |E|$.
+
+   Now choose $A \subseteq S$. Every $a \in A$ has degree $n-k$ and
+   there are $n-k$ edges going between $A$ and $N(A)$.
+
+   Next, let's examine $N(A)$. We know that every $t \in T$ has degree
+   $k+1$ and that $N(A)$ is a subset of $T$. Thus, no $v \in N(A)$ can
+   have degree $> k + 1$ and the maximal possible number of edges
+   connecting to $N(A)$ is $(k + 1)|N(A)$ and we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
+
+   Said differently: if every $deg(v) = k + 1 \forall v \in N(A)$, then $(k +
+   1)|N(A)| = (n-k)|A|$. If there is a vertex with degree less than
+   $k + 1$, then that means it connects to a $u \in S \setminus A$ and we have
+   that $(k + 1)|N(A)| > (n-k)|A|$. This completes the proof.
+
+   The claim,
+   if proven, can thus be used to infer that $|S| \geq |T|$.
+
+   Any two vertices in $A$ must differ in /at least/ $2$ places and at
+   most $2n$ places (one of $2(1,2\dots,n) places).
+
+   On a smaller scale, however,
+
+   Notice that $k \geq \ceil{\frac{n}{2}} \Rightarrow n - k < k + 1$. Thus if we
+   can prove that $|A| + 1 \leq |N(A)|$ for $k > \frac{n}{2}$, then we
+   have covered half the cases.
+
    Note: this is completely wrong. Utter garbage. Ignore this for now.
    Notice that $(n-k)|A|$ is equal to the number of neighbors of $A$.
 
@@ -338,9 +366,9 @@ Consider the graph $G$ with weight function prescribed along its edges:
    #+end_proof
 
    *Hall's matching condition*: Let $G = (S + T, E)$ be a bipartite
-   graph. Then $m(G) = |S$ if and only if $|A| \le |N(A)|$ for all $A \sube S$.
+   graph. Then $m(G) = |S$ if and only if $|A| \le |N(A)|$ for all $A \subseteq S$.
 
-
+   There are $\binom{n}{k}$ vertices in $S$ and $\binom{n}{k+1}$
 
    #+end_answer
 
