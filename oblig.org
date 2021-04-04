@@ -29,26 +29,100 @@
 
    In our case, however, we're only dealing with partitioning a set
    into 2, so the recurrence relation takes on the simpler form $S_{ n,2
-   } = S_{n-1,1} + 2S_{n-1, 2}$. This further simplifies to $S_{n,2} = 1 +
-   2S_{n-1, 2}$, because $S_{n, 1} = 1$ for all $n \ge 1$. We can test that
+   } = S_{n-1,1} + 2S_{n-1, 2}$. We can easily verify that
    the Stirling numbers of the second kind satisfy the equation $S_{n,2}
-   = 2^{n-1} - 1$ for $n = 1$ and $n=2$. To show that it holds for
-   arbitrary /n/, we'll use induction.
-
-   Assume that $S_{n,2} = 2^{n-1} - 1$ holds for some value of $n$. We'll
-   show that in that case, it also holds for $n+1$. If we shift the
-   equation's indices down by one, we get that $S_{n-1, 2} = 2^{n-2} - 1$.
-   We can plug that into the equation and get:
+   = 2^{n-1} - 1$ for $n = 1$.
 
    \begin{align*}
-   S_{n,2} & = S_{n-1,1} + 2S_{n-1, 2}\\
-   & = 1 + 2(2^{n-2} - 1) \\
-   & = 1 + 2^{n-1} - 2 \\
-   & = 2^{n-1} - 1
+     S_{1,2} & = S_{0,1} + 2S_{0,2} \\
+             & = 0
    \end{align*}
+
+   Because it's impossible to divide a singleton set into two
+   non-empty subsets, $S_{1, 2}$ must naturally be $0$. To show that
+   it holds for arbitrary $n \geq 2$, let's use induction.
+
+   First note that when $n \geq 2$ the formula further simplifies to
+   $S_{n,2} = 1 + 2S_{n-1, 2}$ because $S_{n, 1} = 1$ for all $n \ge
+   1$ (there is only one way to select /all/ the elements of a set).
+   Thus, assume that $S_{n,2} = 2^{n-1} - 1$ holds for some value of
+   $n \geq 2$. We'll show that in that case, it also holds for $n+1$.
+   If we shift the equation's indices down by one, we get that
+   $S_{n-1, 2} = 2^{n-2} - 1$. We can plug that into the equation and
+   get:
+
+   \begin{align*}
+     S_{n,2} & = S_{n-1,1} + 2S_{n-1, 2}\\
+             & = 1 + 2(2^{n-2} - 1) \\
+             & = 1 + 2^{n-1} - 2 \\
+             & = 2^{n-1} - 1
+   \end{align*}
+
+   Now, let's look at the generating function $$\mathcal{S}_2(z) & =
+   \sum_{n=0}^{\infty}S_{n,2}z^{n}$$ and expressing it as a rational function.
+
+   If we expand it out, we'll see that it's actually the sum of two
+   variations of the well-known generating function
+   $\sum_{n\geq0}z^n$.
+
+   Because we have that $S_{0,2} =0$ and that $S_{n,2} = 2^{n-1}-1$
+   for $n \geq 1$, we can split the sum into the initial element
+   (index 0) and the remaining terms, where the remaining terms take
+   on the form of $(2^{n-1}-1)z^{n}$:
+
+   \begin{align*}
+     \mathcal{S}_2(z) & = \sum_{n=0}^{\infty}S_{n,2}z^{n} \\
+                      & = S_{0,2}z^{0} + \sum_{n \geq 1} (2^{n-1} - 1)z^{n} \\
+                      & = 0 + \sum_{n \geq 1} 2^{n-1}z^n + \sum_{n \geq 1} -z^{n} \\
+                      & = \sum_{n \geq 1} 2^{n-1}z^n - \sum_{n \geq 1} z^{n}
+   \end{align*}
+
+   However, the well-known rational functions we have at our disposal
+   start counting from 0, not from 1, so we need to adjust for that.
+   We can perform an index transformation to simplify the first sum
+   and make it start at 0.
+
+   \begin{align*}
+     \sum_{n \geq 1}{2^{n-1}z^n} & = \sum_{n \geq 1}{2^{n-1}zz^{n-1}} \\
+                                 & =z \sum_{n \geq 1}{2^{n-1}z^{n-1}} \\
+                                   & = z \sum_{n \geq 0}2^nz^{n} \\
+                                   & = z \sum_{n \geq 0}(2z)^{n}
+   \end{align*}
+
+   For the second sum,  we'll simply start at 0, but subtract the
+   first term.
+
+   \begin{align*}
+     \sum_{n \geq 1}z^n & = \sum_{n \geq 0}z^n - z^0 \\
+                          & = \sum_{n \geq 0}z^n - 1
+   \end{align*}
+
+   Now we have two much more familiar sums to work with: $$z\sum_{n
+   \geq 0}(2z)^{n} - (\sum_{n \geq 0}z^n - 1).$$ We can express them as
+   their rational function counterparts and then simplify.
+
+   \begin{align*}
+   z\sum_{n \geq 0}(2z)^{n} - (\sum_{n \geq 0}z^n - 1) & = z
+     \frac{1}{1-2z} - (\frac{1}{1-z} - 1) \\
+     & = \frac{z}{1-2z} - (\frac{1}{1-z} - 1) \\
+     & = \frac{z}{1-2z} - (\frac{1}{1-z} - (\frac{1-z}{1-z})) \\
+     & = \frac{z}{1-2z} - (\frac{1 - 1 + z}{1-z}) \\
+     & = \frac{z}{1-2z} - (\frac{z}{1-z}) \\
+     & = \frac{z}{1-2z} - (\frac{z}{1-z})
+   \end{align*}
+
+   At this step, let's put both fractions over a common denominator
+   and work it all out.
+
+   \begin{align*}
+     \frac{z}{1-2z} - (\frac{z}{1-z}) & = \frac{z(1-z) -
+                                        (z(1-2z)}{(1-z)(1-2z)} \\
+                                      & = \frac{z - z^2 -z + 2z^2}{(1-z)(1-2z)} \\
+                                      & = \frac{z^2}{(1-z)(1-2z)}
+   \end{align*}
+
+   And that's the rational function we've been asked to find: $$\frac{z^2}{(1-z)(1-2z)}.$$
    #+end_answer
-
-
 
 2. Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for $\mathcal{S}_2(z)$ to prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
 
