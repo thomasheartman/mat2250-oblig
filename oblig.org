@@ -271,6 +271,27 @@ Consider the graph $G$ with weight function prescribed along its edges:
 
    The length of the shortest weighted path in $G$ from $u_{0}$ to $u_{3}$
    is $3$.
+
+   The spanning tree we end up with looks like this (using the same
+   choice for the last edge as described above).
+
+   \begin{center}\newcommand\size{3}% distance of nodes from center
+     \begin{tikzpicture}
+       \draw [thick,black] (0,0)-- (90:\size)  node [left, midway] {2};
+       \draw[thick,black]  (90:\size)--(162:\size) node [above, midway] {2};
+       \draw [thick,black] (0,0)-- (234:\size)  node [above, midway] {1};
+       \draw[thick,black]  (18:\size)--(90:\size) node [above, midway] {4};
+       \draw [thick,black] (0,0)-- (306:\size)  node [above, midway] {3};
+
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (18:\size){$u_1$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (90:\size){$u_0$};
+       \node[black,circle,draw, fill= white, inner sep=2pt]at (162:\size){$u_4$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (234:\size){$u_3$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (306:\size){$u_2$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (0:0){$u_5$};
+     \end{tikzpicture}
+   \end{center}
+
    #+end_answer
 
 2. Run Kruskal's algorithm to find a minimal spanning tree of $G$ for the given weight function.
@@ -288,6 +309,26 @@ Consider the graph $G$ with weight function prescribed along its edges:
    This yields a minimal spanning tree with weight $9$. It is /not/
    unique, as we could also have chosen $u_{4}u_{0}$ in step 4, which
    would have yielded a different spanning tree with equal weight.
+
+   The minimal spanning tree we get looks like this:
+
+   \begin{center}\newcommand\size{3}% distance of nodes from center
+     \begin{tikzpicture}
+       \draw [thick,black] (0,0)-- (162:\size)  node [above, midway] {1};
+       \draw [thick,black] (0,0)-- (234:\size)  node [above, midway] {1};
+       \draw[thick,black]  (234:\size)--(306:\size) node [above, midway] {2};
+       \draw [thick,black] (0,0)-- (90:\size)  node [left, midway] {2};
+       \draw [thick,black] (0,0)-- (18:\size)  node [above, midway] {3};
+
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (18:\size){$u_1$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (90:\size){$u_0$};
+       \node[black,circle,draw, fill= white, inner sep=2pt]at (162:\size){$u_4$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (234:\size){$u_3$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (306:\size){$u_2$};
+       \node[black,circle,draw, fill= white, inner sep=2pt] at (0:0){$u_5$};
+     \end{tikzpicture}
+   \end{center}
+
    #+end_answer
 
 3. Show that if the greedy algorithm on matroids from Theorem 7.13  can select two distinct bases  $B_1$ and  $B_2$ of minimal weight, then there must exist $s_1 \in B_1$ and $s_2 \in B_2$ such that $w(s_1) = w(s_2)$. Conclude that if the weight function $w : S \to \mathbb{R}$  is an injective  map then the greedy algorithm selects a unique minimal basis of a matroid.
