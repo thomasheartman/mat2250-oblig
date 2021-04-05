@@ -62,7 +62,7 @@ Collaborators: {{{collaborators}}}
              & = 2^{n-1} - 1
    \end{align*}
 
-   Now, let's look at the generating function $$\mathcal{S}_2(z) & =
+   Now, let's look at the generating function $$\mathcal{S}_2(z) =
    \sum_{n=0}^{\infty}S_{n,2}z^{n}$$ and expressing it as a rational function.
 
    If we expand it out, we'll see that it's actually the sum of two
@@ -191,7 +191,7 @@ Collaborators: {{{collaborators}}}
    #+begin_answer
    Since we know what the rational function is and because it divides
    neatly into three separate fractions, we can use partial fraction
-   decomposition as follows: $$ \frac{z^3}{(1-z)(1-2z)(1-3z)} & = z^3(\frac{a}{1-z} + \frac{b}{1-2z} + \frac{c}{1-3z}).$$
+   decomposition as follows: $$ \frac{z^3}{(1-z)(1-2z)(1-3z)} = z^3(\frac{a}{1-z} + \frac{b}{1-2z} + \frac{c}{1-3z}).$$
 
    This gives us that
 
