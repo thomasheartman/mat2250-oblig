@@ -5,9 +5,9 @@
 #+latex_class: uio-memoir
 #+macro: collaborators Bajard, Manon; Bentdal, Silje M.; Grellet, Alexandre
 
-#+begin_center
+#+begin_small
 Collaborators: {{{collaborators}}}
-#+end_center
+#+end_small
 
 #+begin_problem
 *Stirling numbers of the 2nd kind and generating functions*
