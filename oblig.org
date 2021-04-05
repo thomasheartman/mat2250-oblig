@@ -3,7 +3,11 @@
 #+date: {{{time(%Y-%m-%d)}}}
 #+options: toc:nil
 #+latex_class: uio-memoir
-#+description: This is my description.
+#+macro: collaborators Bajard, Manon; Bentdal, Silje M.; Grellet, Alexandre
+
+#+begin_center
+Collaborators: {{{collaborators}}}
+#+end_center
 
 #+begin_problem
 *Stirling numbers of the 2nd kind and generating functions*
