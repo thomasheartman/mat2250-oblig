@@ -222,11 +222,11 @@
      S_{n,3} & = \frac{1}{2} - 4 \cdot 2^{n-3} + \frac{9 \cdot
                3^{n-3}}{2} \\
              & = \frac{1}{2} - 2^{n-1} + \frac{3^{n-1}}{2} \\
-             & = \frac{1 + 2^n + 3^{n-1}}{2}
+             & = \frac{1 - 2^n + 3^{n-1}}{2}
    \end{align*}
 
    And we have that the Stirling numbers of the second kind satisfy
-   $$ S_{n,3} = \frac{1 + 2^n - 3^{n-1}}{2} $$ for $n \geq 1$.
+   $$ S_{n,3} = \frac{1 - 2^n + 3^{n-1}}{2} $$ for $n \geq 1$.
 
    #+end_answer
 
