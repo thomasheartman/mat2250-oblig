@@ -183,6 +183,53 @@
    #+end_proof
 
 3. Use a partial fraction decomposition of the generating function $\mathcal{S}_3(z)$ to obtain a closed formula for $S_{n, 3}$.
+
+   #+begin_answer
+   Since we know what the rational function is and because it divides
+   neatly into three separate fractions, we can use partial fraction
+   decomposition as follows: $$ \frac{z^3}{(1-z)(1-2z)(1-3z)} & = z^3(\frac{a}{1-z} + \frac{b}{1-2z} + \frac{c}{1-3z}).$$
+
+   This gives us that
+
+   \begin{align*}
+     \mathcal{S}_3(z) & = z^3(\frac{a}{1-z} + \frac{b}{1-2z} +
+                        \frac{c}{1-3z}) \\
+                      & = z^3(a\sum z^n + b \sum (2z)^n + c \sum (3z)^n) \\
+                      & = \sum_n(a1^{n-3} + b2^{n-3}+c3^{n-3}) z^n \\
+                      & = \sum_n(a + 2^{n-3}b + 3^{n-3}c)z^n
+   \end{align*}
+
+   and thereby $$ S_{n,3} = a + 2^{n-3}b + 3^{n-3}c.$$
+
+   Next, we'll have to determine the values of $a$, $b$, and $c$.
+
+   We have that $$ \frac{1}{(1-z)(1-2z)(1-3z)}  = \frac{a}{1-z} +
+   \frac{b}{1-2z} + \frac{c}{1-3z}.$$ Taking the common denominator we
+   get that    $$ (a+b+c) + (-5a - 4b -3c)z + (6a + 3b + 2c)z^2 = 1.$$
+   In other words, $a$, $b$, and $c$ must satisfy this system of
+   equations:
+
+   \begin{align*}
+     a + b + c & = 1 \\
+     -5a - 4b -3c & = 0 \\
+     6a + 3b + 2c & = 0
+   \end{align*}
+
+   Solving this, we find that    $$ a = \frac{1}{2}, b = -4, c =
+   \frac{9}{2} $$ and that
+
+   \begin{align*}
+     S_{n,3} & = \frac{1}{2} - 4 \cdot 2^{n-3} + \frac{9 \cdot
+               3^{n-3}}{2} \\
+             & = \frac{1}{2} - 2^{n-1} + \frac{3^{n-1}}{2} \\
+             & = \frac{1 + 2^n + 3^{n-1}}{2}
+   \end{align*}
+
+   And we have that the Stirling numbers of the second kind satisfy
+   $$ S_{n,3} = \frac{1 + 2^n - 3^{n-1}}{2} $$ for $n \geq 1$.
+
+   #+end_answer
+
 #+end_problem
 
 #+begin_problem
