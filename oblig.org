@@ -126,6 +126,62 @@
 
 2. Use the recurrence relation $S_{n, k} = S_{n-1, k-1} + k S_{n-1, k}$  and the formula found above for $\mathcal{S}_2(z)$ to prove that $$\mathcal{S}_3(z) := \sum_{n = 0}^\infty S_{n, 3} z^n =  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
 
+   #+begin_proof
+   Assuming the claim in the problem statement is correct, then we
+   should be able to expand the generating function provided and,
+   using the recurrence relation and the rational function for
+   $\mathcal{S}_{2}$, end up at the same rational function for
+   $\mathcal{S}_{3}$ as the one we are given in the problem statement: $$  \frac{z^3}{(1-z)(1-2z)(1-3z)}.$$
+
+   To get started, we realize that because of the recurrence relation,
+   we can expand the sum formula for $\mathcal{S}_{3}(z)$ into two
+   separate sums with a little effort.
+
+   Much as with the $\mathcal{S}_{2}(z)$ series, the first term
+   is $0$ ($S_{0,k} = 0$). In other words, we have that $$\sum_{n \geq
+   0}S_{n,3}z^n = 0 + \sum_{n \geq 1}S_{n,3}z^n.$$
+
+   At this point, we can use the recurrence relation on the sum
+   expression and expand it. After expanding, we'll see that we can
+   also perform and index transformation and get a sum that starts
+   from zero.
+
+   \begin{align*}
+     \sum_{n \geq 1}S_{n,3}z^n & = \sum_{n \geq 1}(S_{n-1,2} +
+                                 3S_{n-1,3})z^n \\
+                               & = \sum_{n \geq 0}(S_{n,2} + 3S_{n,3})z^{n+1} \\
+                               & = z\sum_{n \geq 0}(S_{n,2} + 3S_{n,3})z^n
+   \end{align*}
+
+   Next step is to split this expression into two separate sums and
+   realize that it's two expressions that we have rational functions for.
+
+   \begin{align*}
+     z\sum_{n \geq 0}(S_{n,2} + 3S_{n,3})z^n & = z\sum_{n \geq
+                                               0}S_{n,2}z^n + 3z\sum_{n
+                                               \geq 0}S_{n,3}z^n \\
+                                             & = z\mathcal{S}_2(z) + 3z\mathcal{S}_3(z)
+   \end{align*}
+
+   We have already found the rational function for $\mathcal{S}_{2}$
+   and the problem statement provides us with the rational function
+   for $\mathcal{S}_{3}$. If we insert the rational functions in place
+   of the generating functions above and sum them, we should end up
+   with the same rational function as in the problem formulation.
+
+   \begin{align*}
+   z\mathcal{S}_2(z) + 3z\mathcal{S}_3(z) & = z(\frac{z^2}{(1-z)(1-2z)})
+                                            +
+                                            3z(\frac{z^3}{(1-z)(1-2z)(1-3z)})
+     \\
+                                          & = \frac{z^3}{(1-z)(1-2z)} + \frac{3z^4}{(1-z)(1-2z)(1-3z)} \\
+                                          & = \frac{z^3 - 3z^4 + 3z^4}{(1-z)(1-2z)(1-3z)} \\
+                                          & = \frac{z^3}{(1-z)(1-2z)(1-3z)}
+   \end{align*}
+
+   This completes the proof.
+   #+end_proof
+
 3. Use a partial fraction decomposition of the generating function $\mathcal{S}_3(z)$ to obtain a closed formula for $S_{n, 3}$.
 #+end_problem
 
