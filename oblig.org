@@ -596,7 +596,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    Because we have also seen that $m(H) = |S|$ for $k<\frac{n}{2}$, we
    can then conclude that there exists an injective (but not
    surjective!) map from the \(k\)-subsets to the \((k+1)\)-subsets of
-   ${1,\dots,n}$ where $I \subset f(I)$ for $k < \frac{n}{2}$.
+   $\{1,\dots,n\}$ where $I \subset f(I)$ for $k < \frac{n}{2}$.
    #+end_answer
 
 #+end_problem
