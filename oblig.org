@@ -19,17 +19,19 @@ Collaborators: {{{collaborators}}}
    satisfy $S_{n, 2} = 2^{n-1} - 1$ for $n \ge 1$.
 
    Let's start by analyzing the well-known recurrence relation for
-   Stirling numbers of the second kind: $S_{n, k} = S_{n-1, k-1} + k S_{n-1,
-   k}$. Let /X/ be an /n/-set and /a/ \in /X/. Then the first summand is
-   the number of set partitions where /a/ is the only element of its
-   partition. That is, let $P_{k}$ be the /k/-th partition of $X$, $a \in
-   P_k$, and $|P_k| = 1$. This leaves us to partition the remaining $n -
-   1$ elements into $k-1$ partitions. For the second summand, assume
-   that /a/ is not the only member of its partition. That means we
-   can remove /a/, and still have /k/ non-empty partitions, yielding
-   $S_{n-1, k}$. Because inserting /a/ into any of these /k/ partitions
-   would yield a different configuration, we have to multiply $S_{n-1,k}$
-   by /k/ to get all possible configurations.
+   Stirling numbers of the second kind: $S_{n, k} = S_{n-1, k-1} + k
+   S_{n-1, k}$. Let $X$ be an \(n\)-set and $a$ \in $X$. Then the
+   first summand of the recurrence relation is the number of ways
+   to partition $X$ where $a$ is the only element of its partition (where $a$
+   is in a singleton set). That is, let $\{P_{0},\dots,P_{k}\}$ be a
+   partitioning of $X$, $a \in P_k$, and $|P_k| = 1$. This leaves us to
+   partition the remaining $n - 1$ elements into $k-1$ partitions. For
+   the second summand, assume that \(a\) is not the only member of its
+   partition. That means we can remove \(a\), and still have \(k\)
+   non-empty partitions, yielding $S_{n-1, k}$. Because inserting \(a\)
+   into any of these \(k\) partitions would yield a different
+   configuration, we have to multiply $S_{n-1,k}$ by \(k\) to get all
+   possible configurations.
 
    In our case, however, we're only dealing with partitioning a set
    into 2, so the recurrence relation takes on the simpler form $S_{ n,2
@@ -43,8 +45,8 @@ Collaborators: {{{collaborators}}}
    \end{align*}
 
    Because it's impossible to divide a singleton set into two
-   non-empty subsets, $S_{1, 2}$ must naturally be $0$. To show that
-   it holds for arbitrary $n \geq 2$, let's use induction.
+   non-empty subsets, $S_{1, 2}$ must be $0$. To show that it holds
+   for arbitrary $n \geq 2$, let's use induction.
 
    First note that when $n \geq 2$ the formula further simplifies to
    $S_{n,2} = 1 + 2S_{n-1, 2}$ because $S_{n, 1} = 1$ for all $n \ge
@@ -62,7 +64,7 @@ Collaborators: {{{collaborators}}}
              & = 2^{n-1} - 1
    \end{align*}
 
-   Now, let's look at the generating function $$\mathcal{S}_2(z) =
+   Let's move on to the generating function $$\mathcal{S}_2(z) =
    \sum_{n=0}^{\infty}S_{n,2}z^{n}$$ and expressing it as a rational function.
 
    If we expand it out, we'll see that it's actually the sum of two
@@ -251,7 +253,7 @@ Collaborators: {{{collaborators}}}
    character. Thus, every vertex of the hypercube graph must have
    degree $n$.
 
-   Theorem 6.1 in Aigner states that: Let G = (V, E) be a graph. Then $$\sum_{u \in V}d(u) = 2|E|$$.
+   Theorem 6.1 in Aigner states that: Let G = (V, E) be a graph. Then $$\sum_{u \in V}d(u) = 2|E|.$$
 
    In other words: Every edge in $E$ connects to exactly two vertices.
 
@@ -262,7 +264,7 @@ Collaborators: {{{collaborators}}}
 
    #+begin_answer
    To get from $00\dots00$ to $u = u_1 u_2 \dots u_n$ we need to traverse
-   as many edges as there are ones in $u$. In other words, if you treat
+   as many edges as there are \(1\)'s in $u$. In other words, if you treat
    $u$ as a sequence of numbers, you can take the sum of these numbers
    and find the distance.
 
@@ -275,7 +277,13 @@ Collaborators: {{{collaborators}}}
    closer to our goal, the distance between $u$ and $v$ is the number
    of non-zero terms of $w$.
 
-   More succinctly, this can be thought of as $u \oplus v$ or $u XOR v$, where $\oplus$ is the "exclusive or" logical operation. ($\veebar$). Summing this binary word yields the distance from $u$ to $v$.
+   Perhaps easier, we can also do a bitwise (or character-wise)
+   "exclusive or" (XOR) between the two strings: for each index $i$ in
+   the two string representations $s_{1}$ and $s_{2}$, compare the
+   character in $s_{1}$ to the character in $s_{2}$. If they are
+   different, the resulting string $s_{3}$ has a $1$ at index $i$.
+   Otherwise, it's a $0$. Summing $s_{3}$ yields the distance from $u$
+   to $v$.
    #+end_answer
 
 3. Orient the edge $k = uv$  of $Q_n$ so that  $u = k^-$ and $v = k^+$ if the word $v$ contains more $1$'s  than $u$. Prove that the orientation is acyclic. Which word corresponds to a sink and which word is a source?
@@ -291,7 +299,7 @@ Collaborators: {{{collaborators}}}
    Aigner says that: A graph $\overrightarrow{G}$ that contains no directed
    circuits is called /acyclic/. Every undirected graph $G$ can be
    made into an acyclic graph through a suitable orientation. If we
-   can number the vertices $u_1, u_2 \dots u_n$, and for u_iu_j \in $E$
+   can number the vertices $u_1, u_2 \dots u_n$, and for u_{i}u_{j} \in $E$
    always choose the orientation $u_i \rightarrow u_2$ with $i < j$, a
    directed path $u_1, u_2, \dots, u_n$ would then satisfy $i_1 < i_2 <
    i_3 < \cdots$, and thus never close into a circuit.
@@ -302,10 +310,10 @@ Collaborators: {{{collaborators}}}
    according to the number of $1$'s in their respective words.
 
    If you take two binary words $a$ and $b$ that differ in only one
-   character, the difference in number of $1$'s will always be $1$. If
+   character, the difference in number of $1$'s will always be one. If
    the character that differs is a $0$ in $a$, then it must be a $1$
-   in $b$ and $b$ has one more $1$ than $a$. If the character is $1$
-   in $a$, then it must be $0$ in $b$ and $a$ has one more $1$ than
+   in $b$: $b$ has one more $1$ than $a$. If the character is $1$
+   in $a$, then it must be $0$ in $b$: $a$ has one more $1$ than
    $b$.
 
    By definition, every word in $Q_n$ connects only to other words that
@@ -513,11 +521,12 @@ Consider the graph $G$ with weight function prescribed along its edges:
 2. The hypercube graph  $Q_n$ is bipartite, with the two disjoint vertex sets being determined by the binary  words containing an even or odd number of $1$'s. The matching number of $Q_n$ is $2^{n-1}$. Describe a maximal matching of $Q_n$.
 
    #+begin_answer
-   A simple, maximal matching of $Q_n$ would be to interpret the binary
-   words as binary numbers, and then match every even number with its
-   successor. Because the difference in representation between a
-   number and its successor in binary will always change the value of
-   the last character, this is an easy matching to make.
+   A simple, maximal matching of $Q_n$ would be to interpret the
+   binary words as binary numbers, and then match every even number
+   with its successor. Because every even number ends with a $0$ in
+   binary, its successor must always flip the final $0$. Thus, if an
+   arbitrary even number has $m$ $1$'s, then its successor will always
+   have $m+1$ $1$'s.
 
    Thus, the edges of the graph are $u_{2k}u_{2k + 1}$ for $0 \leq k <
    \frac{n}{2}$.
@@ -556,7 +565,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    Next, let's examine $N(A)$. We know that every $t \in T$ has degree
    $k+1$ and that $N(A)$ is a subset of $T$. Thus, no $v \in N(A)$ can
    have degree $> k + 1$ and the maximal possible number of edges
-   connecting to $A$ is $(k + 1)|N(A)$. Thus we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
+   connecting to $A$ is $(k + 1)|N(A)|$. Thus we have that $(k + 1)|N(A)| \ge (n-k)|A|$.
 
    Said differently: if $deg(v) = k + 1 \ \forall v \in N(A)$, then $(k +
    1)|N(A)| = (n-k)|A|$. If there is a vertex with degree less than
@@ -564,12 +573,12 @@ Consider the graph $G$ with weight function prescribed along its edges:
    that $(k + 1)|N(A)| > (n-k)|A|$. This completes the proof.
    #+end_proof
 
-   *Hall's matching condition*: Let $G = (S + T, E)$ be a bipartite
-   graph. Then $m(G) = |S|$ if and only if $|A| \le |N(A)|$ for all $A
-   \subseteq S$.
+   Now, let's see how we can use Hall's matching to conclude that
+   $m(H) = |S|$ for $k < n/2$.
 
-   Theorem 8.4: Let $G = (S + T, E)$ be a bipartite graph. Then
-   $$m(G) = |S| - \max_{A \subseteq S}(|A| - |N(A)|).$$
+   *Hall's matching condition* (as stated on p. 154 of Aigner as
+   theorem 8.3): Let $G = (S + T, E)$ be a bipartite graph. Then $m(G)
+   = |S|$ if and only if $|A| \le |N(A)|$ for all $A \subseteq S$.
 
    There are $\binom{n}{k}$ vertices in $S$ and $\binom{n}{k+1}$ in
    $T$. We know that the binomial coefficients increase strictly for
@@ -582,8 +591,8 @@ Consider the graph $G$ with weight function prescribed along its edges:
    $m(H) = |S|$ when $k < \frac{n}{2}$.
 
    Finally, let's turn our attention to concluding that there exists
-   an injective map $f$ from the subsets of size $k$ of ${1,\dots,n_{}}$ to
-   the subsets of size $k +1$ of ${1,\dots,n}$ satisfying $I \subset f(I)$ for
+   an injective map $f$ from the subsets of size $k$ of $\{1,\dots,n\}$ to
+   the subsets of size $k +1$ of $\{1,\dots,n\}$ satisfying $I \subset f(I)$ for
    $k < \frac{n}{2}$. While the relation might not be at obvious at
    first, this is actually the same problem as the one we just solved.
 
@@ -595,7 +604,7 @@ Consider the graph $G$ with weight function prescribed along its edges:
    Satisfying $I \subset f(I)$ then turns into the act of adding one extra
    element into the set. As we have seen, there are $n-k$ choices for
    which element to choose, and it maps to flipping one of the
-   $0$-characters in the binary representation.
+   \(0\)-characters in the binary representation.
 
    Because we have also seen that $m(H) = |S|$ for $k<\frac{n}{2}$, we
    can then conclude that there exists an injective (but not
